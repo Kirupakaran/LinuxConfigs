@@ -1,0 +1,145 @@
+[bar/top]
+width = 100%
+height = 25
+padding-left = 5
+padding-right = 5
+bottom = false
+
+background = #00ffffff
+foreground = #ffffff
+
+font-0 = FiraMono:style=Regular:size=9;1
+font-1 = FontAwesome:fontformat=truetype:size=8;1
+font-2 = SFNS Display:style=Regular:pixelsize=13;1
+
+modules-left = i3
+modules-center = date
+modules-right = wlan eth battery volume cpu memory
+
+; MODULES
+
+[module/i3]
+type = internal/i3
+
+ws-icon-0 = 
+ws-icon-1 = 
+ws-icon-2 = 
+ws-icon-3 = 
+ws-icon-default = 
+
+format = <label-state> <label-mode>
+
+label-visible-underline = #FFFFFF
+label-focused = %icon%
+label-focused-foreground = #C0C3CA
+label-focused-underline = #FFFFFF
+label-focused-padding = 2
+
+label-occupied = %icon%
+label-occupied-foreground = #FFFFFF
+label-occupied-underline = #FFFFFF
+label-occupied-padding = 2
+
+label-empty = %icon%
+label-empty-foreground = #FFFFFF
+label-empty-underline = #FFFFFF
+label-empty-padding = 2
+
+[module/date]
+type = custom/script
+
+; Seconds to sleep between updates
+interval = 1.0
+
+exec = echo "  $(date +'%I:%M  %A %d %B')"
+
+[module/battery]
+type = internal/battery
+
+full-at = 99
+
+battery = BAT0
+adapter = AC0
+
+poll-interval = 5
+
+format-charging = <animation-charging>  <label-charging>
+format-discharging = <ramp-capacity>  <label-discharging>
+format-full = <ramp-capacity>  <label-full>
+label-charging = %percentage%
+label-discharging = %percentage%
+label-full = %percentage%
+format-charging-padding = 3
+format-discharging-padding = 3
+format-full-padding = 3
+
+ramp-capacity-0 = 
+ramp-capacity-1 = 
+ramp-capacity-2 = 
+ramp-capacity-3 = 
+ramp-capacity-4 = 
+
+animation-charging-0 = 
+animation-charging-1 = 
+animation-charging-2 = 
+animation-charging-3 = 
+animation-charging-4 = 
+animation-charging-framerate = 750
+
+[module/cpu]
+type = internal/cpu
+interval = 2
+format-underline = #d33636
+label = "  %percentage%"
+label-padding = 4
+
+[module/memory]
+type = internal/memory
+interval = 2
+format-underline = #999999
+label = "  %gb_used%"
+
+[module/wlan]
+type = internal/network
+interface = wlp1s0
+interval = 1
+
+format-prefix = " "
+format-connected = <label-connected>
+format-connected-underline = #268bd2
+
+label-connected = "  %signal% %essid%"
+label-disconnected = 
+
+ramp-signal-0 = 
+ramp-signal-1 = 
+ramp-signal-2 = 
+ramp-signal-3 = 
+ramp-signal-4 = 
+ramp-signal-foreground = ${colors.foreground-alt}
+
+[module/eth]
+type = internal/network
+interface = enp0s31f6
+interval = 3.0
+
+format-prefix = " "
+format-connected-underline = #55aa55
+label-connected = ""
+
+[module/volume]
+type = internal/volume
+
+format-volume = <ramp-volume>  <label-volume>
+format-muted = <label-muted>
+label-volume = %percentage%
+label-muted =   muted
+label-muted-foreground = #aaa
+format-volume-padding = 3
+format-muted-padding = 3
+
+ramp-volume-0 = 
+ramp-volume-1 = 
+ramp-volume-2 = 
+ramp-headphones-0 = 
+
