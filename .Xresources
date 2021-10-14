@@ -84,4 +84,3 @@ rofi.color-window: argb:80191919, argb:60181818, #1919191
 rofi.color-normal: argb:0095C7AE, #A09894, argb:0095C7AE, argb:80101218, #95C7A
 rofi.separator-style: none
 rofi.width: 100%
-
